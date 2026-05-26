@@ -1,0 +1,30 @@
+#dog-image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 12px;
+  width: fit-content;
+}
+
+#dog-image-container img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+#dog-breeds {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: calc(27 * 24px); 
+  column-gap: 32px;
+  padding: 0;
+  list-style-position: inside;
+}
+
+#dog-breeds li {
+  height: 24px;
+  line-height: 24px; 
+  box-sizing: border-box;
+}

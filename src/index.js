@@ -3,10 +3,19 @@ const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = "https://dog.ceo/api/breeds/list/all"
 
 document.addEventListener("DOMContentLoaded", () => {
+  const alphaStr = "abcdefghijklmnopqrstuvwxyz"
   const breedList = document.getElementById("dog-breeds")
   addImages(document.getElementById("dog-image-container"))
   listBreeds(breedList)
-  document.getElementById("breed-dropdown").addEventListener("change", (e) => {
+  const breedDropdown = document.getElementById("breed-dropdown")
+  
+  for(const letter of alphaStr) {
+    const breedOpt = document.createElement('option')
+    breedOpt.textContent = letter
+    breedOpt.value = letter
+    breedDropdown.appendChild(breedOpt)
+  }
+  breedDropdown.addEventListener("change", (e) => {
     filterDogBreeds(breedList, e.target.value)
   })
 })
@@ -39,7 +48,7 @@ function listBreeds(parentDiv) {
             e.target.setAttribute("data-clicked", "true")
           } else {
             e.target.style.color = "black"
-            e.target.getAttribute("data-clicked", "false")
+            e.target.setAttribute("data-clicked", "false")
           }
         })
 
@@ -69,7 +78,7 @@ function filterDogBreeds(parentDiv, selection) {
                 e.target.setAttribute("data-clicked", "true")
               } else {
                 e.target.style.color = "black"
-                e.target.getAttribute("data-clicked", "false")
+                e.target.setAttribute("data-clicked", "false")
               }
             })
 
